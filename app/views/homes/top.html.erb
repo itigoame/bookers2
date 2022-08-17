@@ -1,4 +1,23 @@
-<h1>welcome to <strong>Bookers !!</strong></h1>
-<p>in <strong>Bookers</strong>,</p>
-<p>you can share and exchange your opinions , <br>
-inpressions , and emotions</p>
+<div class="container d-flex flex-column">
+
+  <div class="row">
+    <div class="mx-auto col-11">
+      <h1>welcome to <i class="in fa fa-book"> </i><strong>Bookers !!</strong></h1>
+      <p>In <i class="in fa fa-book"> </i><strong>Bookers</strong>,</p>
+      <p>you can share and exchange your opinions , inpressions , and emotions<br>
+         about various books!</p>
+
+      <div class="btn-wrapper col-10 mx-auto">
+        <div class="botton mb-3">
+          <%= link_to "Log in" , new_user_session_path , class: "btn btn-block btn-sm btn-info bg-info" %>
+        </div>
+
+        <div class="botton">
+          <%= link_to "Sign up" , new_user_registration_path , class: "btn btn-block btn-sm btn-success bg-success" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -16,10 +16,10 @@
     <header>
         <nav class="container-fluid navbar navbar-dark bg-dark">
           <div class ="container">
-          <% if user_signed_in? %>
           <a class="navbar-brand" href="/">Bookers</a>
+          <% if user_signed_in? %>
 
-          <ul class="list-unstyled" >
+          <ul class="list-unstyled ml-auto m-0" >
 
             <li class="list-inline-item">
               <%= link_to root_path , class: 'nav-link text-white' do %>
@@ -44,10 +44,11 @@
                <i class="fa fa-sign-out-alt"></i> Log out
               <% end %>
             </li>
+          </ul>
 
           <% else %>
-
-             <li class="list-inline-item">
+          <ul class="list-unstyled ml-auto m-0" >
+            <li class="list-inline-item">
               <%= link_to root_path , class: 'nav-link text-white' do %>
               <i class="fa fa-home"> </i> Home
               <% end %>
