@@ -6,50 +6,88 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://kit.fontawesome.com/73bd0b2830.js" crossorigin="anonymous"></script>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header class="container-fluid">
-        <nav class="navbar navbar-dark bg-dark">
+  <body class="d-flex flex-column vh-100">
+    <header>
+        <nav class="container-fluid navbar navbar-dark bg-dark">
+          <div class ="container">
+          <% if user_signed_in? %>
+          <a class="navbar-brand" href="/">Bookers</a>
 
-        <% if user_signed_in? %>
-        <li>
-          <%= link_to"Home",root_path,class: 'nav-link text-white' %>
-        </li>
-        <li>
-          <%= link_to"Users", users_show_path,class: 'nav-link text-white' %>
-        </li>
-        <li>
-          <%= link_to"Books", books_path,class: 'nav-link text-white' %>
-        </li>
-        <li>
-          <%= link_to"Log out",destroy_user_session_path, method: :delete,class: 'nav-link text-white' %>
-        </li>
-        <% else %>
-        <li>
-          <%= link_to"Home", root_path,class: 'nav-link text-white' %>
-        </li>
-        <li>
-          <%= link_to"About", about_path,class: 'nav-link text-white' %>
-        </li>
-        <li>
-          <%= link_to"Sign up",new_user_registration_path,class: 'nav-link text-white' %>
-        </li>
-        <li>
-          <%= link_to"Log in",new_user_session_path,class: 'nav-link text-white' %>
-        </li>
-      <% end %>
-    </nav>
+          <ul class="list-unstyled" >
+
+            <li class="list-inline-item">
+              <%= link_to root_path , class: 'nav-link text-white' do %>
+              <i class="fa fa-home"> </i> Home
+              <% end %>
+            </li>
+
+            <li class="list-inline-item">
+              <%= link_to users_show_path,class: 'nav-link text-white' do %>
+              <i class="fa fa-users"> </i> Users
+              <% end %>
+            </li>
+
+            <li class="list-inline-item">
+              <%= link_to books_path,class: 'nav-link text-white' do %>
+              <i class="fa fa-book-open"> </i> Books
+              <% end %>
+            </li>
+
+            <li class="list-inline-item">
+              <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-white' do %>
+               <i class="fa fa-sign-out-alt"></i> Log out
+              <% end %>
+            </li>
+
+          <% else %>
+
+             <li class="list-inline-item">
+              <%= link_to root_path , class: 'nav-link text-white' do %>
+              <i class="fa fa-home"> </i> Home
+              <% end %>
+            </li>
+
+            <li class="list-inline-item">
+              <%= link_to about_path,class: 'nav-link text-white' do %>
+              <i class="fa fa-link"> </i> About
+              <% end %>
+            </li>
+
+            <li class="list-inline-item">
+              <%= link_to new_user_registration_path , class: 'nav-link text-white' do %>
+              <i class="fa fa-user-plus"> </i> Sign up
+              <% end %>
+            </li>
+
+
+            <li class="list-inline-item">
+              <%= link_to new_user_session_path,class: 'nav-link text-white' do %>
+              <i class="fa fa-sign-in-alt"> </i> Log in
+              <% end %>
+            </li>
+
+          </ul>
+          <% end %>
+          </div>
+        </nav>
     </header>
+
     <main>
     <%= yield %>
     </main>
 
-    <footer class="container-fluid">
-
+    <footer>
+      <div class ="container mt-5">
+        <div class="mx-auto text-center">
+          <span>CopyRight Infratop.inc</span>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
