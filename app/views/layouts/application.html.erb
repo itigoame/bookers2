@@ -22,7 +22,7 @@
           <ul class="list-unstyled ml-auto m-0" >
 
             <li class="list-inline-item m-0">
-              <%= link_to root_path , class: 'nav-link text-white' do %>
+              <%= link_to user_path(current_user.id) , class: 'nav-link text-white' do %>
               <i class="fa fa-home"> </i> Home
               <% end %>
             </li>
