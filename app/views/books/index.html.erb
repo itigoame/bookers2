@@ -1,2 +1,28 @@
-<h1>Book#index</h1>
-<p>Find me in app/views/book/index.html.erb</p>
+<h2>Users info</h2>
+
+<%= image_tag @user.get_profile_image(100,100) %>
+
+<table>
+  <tr>
+  <th>name</th>
+  <tb><%= @user.name %></tb>
+  </tr>
+
+  <tr>
+  <th>introduction</th>
+  <tb><%= @user.introduction %></tb>
+  </tr>
+</table>
+
+
+<h2>New book</h2>
+
+  <% form_with model: @user.new do |f| %>
+    <label>Title</label>
+    <%= f.text_field :title %>
+
+    <label>Opinion</label>
+    <% f.text_area :body %>
+
+    <%= f.fubmit "Create Book" %>
+  <% end %>
