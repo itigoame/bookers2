@@ -1,63 +1,24 @@
-<p id="notice"></p>
-<div class="container px-5">
+ <div class="container px-5">
+
+   <%= render "user-info",book: @book %>
+
   <div class="row">
-    <div class="col-3">
+   <div class="col-8 offset-md-1">
+      <h2>Books</h2>
 
-      <h2>User info</h2>
+      <table class="table table-hover">
 
-      <%= image_tag @user.get_profile_image(100,100) %>
-
-      <table>
-        <tr></tr>
+        <% @books.each do |book| %>
+        <tbody>
         <tr>
-        <th>name</th>
-        <th><%= @user.name %></th>
+        <td><%= image_tag book.user.get_profile_image(80,80) %></td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
         </tr>
-
-        <tr>
-        <th>introduction</th>
-        <th><%= @user.introduction %></th>
-        </tr>
-      </table>
-
-      <h2>New book</h2>
-
-        <%= form_with model: @user do |f| %>
-          <div class"text-group">
-          <label fot="title">Title</label>
-          <%= f.text_field :title %>
-          </div>
-
-          <div class"text-group">
-          <label fot="opinion">Opinion</label>
-          <%= f.text_area :body %>
-          </div>
-
-          <%= f.submit "Create Book" %>
-
+        </tbody>
         <% end %>
-    </div>
 
-  <div class="col-8">
-    <h2>Books</h2>
-
-        <table>
-          <thead>
-          <tr>
-          <th></th>
-          <th>Title</th>
-          <th>Opinion</th>
-          </tr>
-          </thead>
-
-          <tbody>
-          <tr>
-          <td><%= image_tag @user.get_profile_image(100,100) %></td>
-
-          </tr>
-          </tbody>
-        </table>
+      </table>
     </div>
   </div>
 </div>
-
