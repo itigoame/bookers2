@@ -2,7 +2,8 @@
   <p id="notice"></p>
   <div class="row">
     <div class="col">
-      <%= form_with model: book do |f| %>
+      <h2>Editing Book</h2>
+      <%= form_with model: @book ,url: book_path(@book.id),method: :patch do |f| %>
           <div class"text-group mb-16">
           <label for="title">Title
           <imput type="text" id="title"><%= f.text_field :title %></imput>
@@ -15,10 +16,10 @@
           </label>
           </div>
 
-          <%= f.submit "Create Book" ,class: "btn btn-sm btn-success bg-success" %>
+          <%= f.submit "Update Book" ,class: "btn btn-sm btn-success bg-success" %>
 
         <% end %>
     </div>
-       
+
   </div>
 </div>

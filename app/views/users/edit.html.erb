@@ -1,5 +1,22 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container d-flex flex-column">
+  <p id="notice"></p>
+
+  <div class="row">
+    <h2>User info</h2>
+    <%= form_with model: @uesr ,url: user_path(@user.id),method: :patch do |f| %>
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name,autofocus: true, autocomplete: "name" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.email_field :email, autocomplete: "email" %>
+    </div>
+
+ </div>
+
+
 
 Image
 <%= f.file_field :image, accept: "image/*" %>

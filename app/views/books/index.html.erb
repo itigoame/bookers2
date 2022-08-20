@@ -1,8 +1,9 @@
- <div class="container px-5">
-
-   <%= render "user-info",book: @book %>
+<p id="notice"></p>
+<div class="container px-5">
 
   <div class="row">
+  <%= render "books/user-info", book: @book,user: @user %>
+
    <div class="col-8 offset-md-1">
       <h2>Books</h2>
 

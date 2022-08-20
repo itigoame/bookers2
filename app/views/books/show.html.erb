@@ -1,22 +1,26 @@
+<p id="notice"></p>
 <div class="container px-5">
-  
-  <%= render "user-info",book: @book %>
-  
+
   <div class="row">
+  <%= render "user-info",book: @book,user: @user %>
    <div class="col-8 offset-md-1">
-    <h2>Books</h2>
+    <h2>Book detail</h2>
       <div>
         <table class="table table-hover">
           <tbody>
             <tr>
-              <td><%= image_tag @books.user.get_profile_image(80,80) %><%= @books.user.name %></td>
               <td>
-                <%= link_to book_path(@books.id) do %>
-                  <%= @books.title  %>
+                <%=link_to user_path(@user.id) do %>
+                  <%= image_tag @bookshow.user.get_profile_image(80,80) %><br>
+                  <%= @bookshow.user.name %> </td>
+                <% end %>
+              <td>
+                <%= link_to book_path(@bookshow.id) do %>
+                  <%= @bookshow.title  %>
                 <% end %>
               </td>
 
-              <td><%= @books.body %></td>
+              <td><%= @bookshow.body %></td>
             </tr>
           </tbody>
 

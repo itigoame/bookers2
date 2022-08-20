@@ -1,9 +1,9 @@
 <p id="notice"></p>
 <div class="container px-5">
 
-　<%= render "books/user-info", user: @user %>
-
   <div class="row">
+
+    <%= render "books/user-info", book: @book,user: @user %>
 
     <div class="col-8 offset-md-1">
       <h2>Books</h2>
@@ -17,15 +17,19 @@
           </tr>
         </thead>
 
-        <% @books.each do |book| %>
           <tbody>
+            <% @bookshow.each do |book| %>
             <tr>
-              <td><%= image_tag book.user.get_profile_image(80,80) %></td>
-              <td><%= book.title %></td>
+              <td><%= image_tag @user.get_profile_image(80,80) %></td>
+              <td>
+                <%= link_to book_path(@user.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
               <td><%= book.body %></td>
             </tr>
+            <% end %>
           </tbody>
-        <% end %>
 
       </table>
 
