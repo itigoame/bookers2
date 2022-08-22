@@ -5,7 +5,7 @@
 
     <%= render "books/user-info", book: @book,user: @user %>
 
-    <div class="col-8 offset-md-1">
+    <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
 
       <table class="table table-hover">
@@ -20,7 +20,10 @@
           <tbody>
             <% @bookshow.each do |book| %>
             <tr>
-              <td><%= image_tag @user.get_profile_image(80,80) %></td>
+              <td>
+                <%= link_to user_path(book.user) do %>
+                <%= image_tag @user.get_profile_image(80,80) %></td>
+                <% end %>
               <td>
                 <%= link_to book_path(book.id) do %>
                   <%= book.title %>
